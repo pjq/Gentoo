@@ -1,15 +1,20 @@
 # Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/chromium-bin/Attic/chromium-bin-9999.ebuild,v 1.44 2010/08/30 01:05:52 phajdan.jr dead $
+# $Header: /var/cvsroot/gentoo-x86/www-client/chromium-bin/chromium-bin-6.0.470.0_p52843.ebuild,v 1.1 2010/07/19 08:21:57 voyageur Exp $
 
 EAPI="2"
 inherit eutils multilib portability
 
+# Latest revision id can be found at
+# http://build.chromium.org/buildbot/snapshots/chromium-rel-linux/LATEST
+MY_PV="${PV/[0-9.]*\_p}"
+
 DESCRIPTION="Open-source version of Google Chrome web browser (binary version)"
 HOMEPAGE="http://code.google.com/chromium/"
+SRC_URI="http://build.chromium.org/buildbot/snapshots/chromium-rel-linux/${MY_PV}/chrome-linux.zip -> ${PN}-x86-${MY_PV}.zip "
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="-* ~amd64 ~x86"
 IUSE="+plugins-symlink"
 
 DEPEND="app-arch/unzip"
@@ -64,18 +69,6 @@ pkg_setup() {
 			die "/dev/shm has incorrect permissions"
 		fi
 	fi
-}
-
-src_unpack() {
-	if use amd64; then
-		arch_path="-64"
-	fi
-#	LV=`curl --silent http://build.chromium.org/buildbot/snapshots/chromium-rel-linux${arch_path}/LATEST`
-	LV=`curl --silent http://build.chromium.org/f/chromium/snapshots/chromium-rel-linux/LATEST`
-	elog "Installing/updating to version ${LV}"
-	wget -c "http://build.chromium.org/buildbot/snapshots/chromium-rel-linux${arch_path}/${LV}/chrome-linux.zip" -O "${T}"/${PN}-${LV}.zip
-	unzip -qo "${T}"/${PN}-${LV}.zip || die "Unpack failed"
-	chmod -fR a+rX,u+w,g-w,o-w chrome-linux/ || die "chmod failed"
 }
 
 src_install() {
