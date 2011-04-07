@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/1151/trunk/net-im/linuxqq
+END
+metadata.xml
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/701/trunk/net-im/linuxqq/metadata.xml
+END
+Manifest
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/1151/trunk/net-im/linuxqq/Manifest
+END
+ChangeLog
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/1151/trunk/net-im/linuxqq/ChangeLog
+END
+linuxqq-1.0.2_beta1-r3.ebuild
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/1151/trunk/net-im/linuxqq/linuxqq-1.0.2_beta1-r3.ebuild
+END
